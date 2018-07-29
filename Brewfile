@@ -31,6 +31,7 @@ brew 'tig'
 
 cask '1password'
 cask 'alfred'
+cask 'karabiner'
 # cask 'android-platform-tools'
 cask 'appcleaner'
 cask 'docker'
