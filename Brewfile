@@ -53,6 +53,12 @@ cask 'spectacle'
 cask 'teamviewer'
 cask 'vagrant'
 cask 'visual-studio-code'
+cask 'font-fira-code'
+
+# td
+brew 'socat'
+brew 'geoip'
+brew 'geoipupdate'
 
 # quick look plugin
 cask 'qlmarkdown'
