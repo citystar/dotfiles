@@ -29,6 +29,7 @@ brew 'readline'
 brew 'ruby-build'
 brew 'tig'
 
+cask 'dropbox'
 cask '1password'
 cask 'alfred'
 cask 'karabiner'
@@ -36,7 +37,6 @@ cask 'karabiner'
 cask 'appcleaner'
 cask 'docker'
 cask 'dash'
-cask 'dropbox'
 cask 'electronic-wechat'
 cask 'google-chrome'
 # cask 'google-drive'
@@ -53,6 +53,8 @@ cask 'spectacle'
 cask 'teamviewer'
 cask 'vagrant'
 cask 'visual-studio-code'
+
+tap caskroom/fonts
 cask 'font-fira-code'
 
 # td
