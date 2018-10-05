@@ -15,6 +15,7 @@ brew 'coreutils'
 brew 'cask'
 brew 'direnv'
 brew 'git'
+brew 'lv'
 brew 'go'
 brew 'hub'
 # brew 'libiconv'
@@ -51,6 +52,7 @@ cask 'postman'
 cask 'sogouinput'
 cask 'spectacle'
 cask 'teamviewer'
+cask 'virtualbox'
 cask 'vagrant'
 cask 'visual-studio-code'
 
@@ -61,6 +63,7 @@ cask 'font-fira-code'
 brew 'socat'
 brew 'geoip'
 brew 'geoipupdate'
+brew "mysql@5.7", restart_service: true, link: true, conflicts_with: ["mysql"]
 
 # quick look plugin
 cask 'qlmarkdown'
