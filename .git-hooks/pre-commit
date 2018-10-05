@@ -1,0 +1,77 @@
+#!/bin/sh
+#
+# git hook script to check ruby source files to be committed by rubocop before commit.
+
+###############################################
+# Check whether a command exists.
+# Globals:
+#   None
+# Arguments:
+#   $1: Command name
+# Returns:
+#   None
+###############################################
+function default_command_exists {
+  type "${1}" &> /dev/null
+}
+
+###############################################
+# Check whether a command(installed by bundler) exists.
+# Globals:
+#   None
+# Arguments:
+#   $1: Command name
+# Returns:
+#   None
+###############################################
+function bundle_command_exists {
+  bundle show "${1}" &> /dev/null
+}
+
+###############################################
+# Run rubocop on changed ruby files.
+# Globals:
+#   None
+# Arguments:
+#   None
+# Returns:
+#   None
+###############################################
+function check_ruby_scripts {
+  local -r rb_files=${1}
+
+  if [ ! -z "${rb_files}" ]; then
+    if bundle_command_exists rubocop; then
+      echo "Running rubocop on modified files..."
+      if ! bin/rubocop -c .rubocop.yml --force-exclusion ${rb_files}; then
+        local answer=$(question 'Guarded by rubocop, try auto-correct? [Y/n]')
+        case ${answer} in
+            ""|Y* )
+              bin/rubocop -c .rubocop.yml --force-exclusion --auto-correct ${rb_files}
+              git add ${rb_files}
+              ;;
+        esac
+
+        answer=$(question 'Sure to commit? [Y/n]')
+        case ${answer} in
+            ""|Y* ) exit 0;;
+            *  ) exit 1;;
+        esac
+      fi
+    fi
+  fi
+}
+
+function question() {
+  text=$1
+
+  local answer
+  exec < /dev/tty
+  read -p "${text}" answer
+
+  answer=$(echo ${answer} | tr y Y | tr -d '[\[\]]')
+  echo "${answer}"
+}
+
+readonly changed_rb_files=$(git diff --cached --name-only --diff-filter=ACMR -- "*.rb")
+check_ruby_scripts "${changed_rb_files}"

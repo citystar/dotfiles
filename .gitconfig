@@ -6,6 +6,7 @@
 	autocrlf = input
 	pager = lv -c
 	quotepath = false
+	hooksPath = ~/Projects/dotfiles/.git-hooks
 [color]
 	ui = auto
 	interactive = auto
