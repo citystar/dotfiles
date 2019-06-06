@@ -43,11 +43,11 @@ function check_ruby_scripts {
   if [ ! -z "${rb_files}" ]; then
     if bundle_command_exists rubocop; then
       echo "Running rubocop on modified files..."
-      if ! bin/rubocop -c .rubocop.yml --force-exclusion ${rb_files}; then
+      if ! DISABLE_SPRING=1 bundle exec rubocop -c .rubocop.yml --force-exclusion ${rb_files}; then
         local answer=$(question 'Guarded by rubocop, try auto-correct? [Y/n]')
         case ${answer} in
             ""|Y* )
-              bin/rubocop -c .rubocop.yml --force-exclusion --auto-correct ${rb_files}
+              DISABLE_SPRING=1 bundle exec rubocop -c .rubocop.yml --force-exclusion --auto-correct ${rb_files}
               git add ${rb_files}
               ;;
         esac
@@ -58,6 +58,8 @@ function check_ruby_scripts {
             *  ) exit 1;;
         esac
       fi
+    else
+      echo 'no rubocop'
     fi
   fi
 }

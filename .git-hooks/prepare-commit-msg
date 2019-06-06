@@ -14,7 +14,18 @@ BRANCH_NAME="${BRANCH_NAME##*/}"
 BRANCH_EXCLUDED=$(printf "%s\n" "${BRANCHES_TO_SKIP[@]}" | grep -c "^$BRANCH_NAME$")
 BRANCH_IN_COMMIT=$(grep -c "\[$BRANCH_NAME\]" $1)
 
-if [ -n "$BRANCH_NAME" ] && ! [[ $BRANCH_EXCLUDED -eq 1 ]] && ! [[ $BRANCH_IN_COMMIT -ge 1 ]] && [[ "${BRANCH_NAME}" =~ ([pP][lL][tT]-([[:digit:]]+)([-_].*)?) ]]
+shopt -s nocasematch
+
+if [ -n "$BRANCH_NAME" ] && ! [[ $BRANCH_EXCLUDED -eq 1 ]] && ! [[ $BRANCH_IN_COMMIT -ge 1 ]]
 then
-  sed -i.bak -e "1s/^/PLT-${BASH_REMATCH[2]}: /" $1
+  if [[ "${BRANCH_NAME}" =~ ((plt|cs|api)-([[:digit:]]+)([-_].*)?) ]]
+  then
+    COMMIT_PREFIX="$(echo ${BASH_REMATCH[2]} | tr "[:lower:]" "[:upper:]")-${BASH_REMATCH[3]}:"
+    # Omit changing message if there is one.(git commit --amend)
+    if [[ "$(head -c $(($(echo $COMMIT_PREFIX | wc -m) - 1)) $1)" != "${COMMIT_PREFIX}" ]]; then
+      sed -i.bak -e "1s/^/${COMMIT_PREFIX} /" $1
+    fi
+  fi
 fi
+
+shopt -u nocasematch
