@@ -30,10 +30,15 @@ brew 'readline'
 brew 'ruby-build'
 brew 'tig'
 
+# alternative to 'cat'
+brew 'bat'
+# better curl
+brew 'httpie'
+
 cask 'dropbox'
 cask '1password'
 cask 'alfred'
-cask 'karabiner'
+cask 'karabiner-elements'
 # cask 'android-platform-tools'
 cask 'appcleaner'
 cask 'docker'
