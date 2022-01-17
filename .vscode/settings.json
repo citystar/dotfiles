@@ -5,7 +5,7 @@
       "editor.tabSize": 4
   },
 
-  "terminal.integrated.fontFamily": "Inconsolata for Powerline",
+  "terminal.integrated.fontFamily": "Fira Code",
   "terminal.integrated.fontSize": 14,
 
   "files.trimTrailingWhitespace": true,
@@ -22,14 +22,18 @@
   // "ruby.rubocop.onSave": true,
   "editor.wordWrap": "on",
   "editor.tabCompletion": true,
-  "editor.fontFamily": "'Fira Code'",
+  "editor.fontFamily": "Fira Code",
   "editor.fontSize": 13,
   "editor.fontLigatures": true,
   "workbench.iconTheme": "vs-seti",
   "window.zoomLevel": 0,
 
   "files.exclude": {
-      "vendor": true
+    "vendor": true,
+    "**/.classpath": true,
+    "**/.project": true,
+    "**/.settings": true,
+    "**/.factorypath": true
   },
   "workbench.startupEditor": "newUntitledFile",
   "editor.minimap.enabled": false,
@@ -37,18 +41,79 @@
   "workbench.panel.location": "bottom",
   "explorer.confirmDragAndDrop": false,
   "gitlens.advanced.messages": {
-      "suppressCommitHasNoPreviousCommitWarning": false,
-      "suppressCommitNotFoundWarning": false,
-      "suppressFileNotUnderSourceControlWarning": false,
-      "suppressGitVersionWarning": false,
-      "suppressLineUncommittedWarning": false,
-      "suppressNoRepositoryWarning": false,
-      "suppressResultsExplorerNotice": true,
-      "suppressShowKeyBindingsNotice": true,
-      "suppressUpdateNotice": true,
-      "suppressWelcomeNotice": false
+    "suppressLineUncommittedWarning": true,
+    "suppressResultsExplorerNotice": true,
+    "suppressShowKeyBindingsNotice": true,
+    "suppressUpdateNotice": true
   },
   "gitlens.keymap": "chorded",
   "gitlens.historyExplorer.enabled": true,
-  "terminal.integrated.rendererType": "dom"
+  "terminal.integrated.rendererType": "dom",
+  "git.ignoreLimitWarning": true,
+  "git.autofetch": true,
+  "breadcrumbs.enabled": true,
+  "editor.renderWhitespace": "none",
+  "gitlens.views.fileHistory.enabled": true,
+  "gitlens.views.lineHistory.enabled": true,
+  "leetcode.endpoint": "leetcode",
+  "leetcode.defaultLanguage": "ruby",
+  "editor.suggestSelection": "first",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "json.format.enable": false,
+  "java.format.enabled": false,
+  "java.format.comments.enabled": false,
+  "java.format.onType.enabled": false,
+  "javascript.format.enable": false,
+
+  // rest-client
+  "rest-client": {
+    "defaultHeaders": {
+      "Content-Type": "application/json",
+      "Authorization": "12345"
+    },
+    "environmentVariables": {
+      "$shared": {
+      },
+      "local": {
+        // "host": "http://api-local.treasuredata.com:3000",
+        "host": "http://127.0.0.1:3000",
+        "token": "TD1 1/84dc9ef11d018254845d514652aaea78995cb3f9"
+      },
+      "development": {
+        "host": "https://api-development.treasuredata.com",
+        "token": "TD1 1/9590ee25eea51392552d49ecb35f64fe9c9edb8b"
+      },
+      "development-eu01": {
+        "host": "https://api-development.eu01.treasuredata.com",
+        "token": "TD1 1/b759738a7936d3420cc7a9ee77f3b65c2f294bf5"
+      },
+      "production": {
+        "host": "https://api.treasuredata.com",
+        "token": "TD1 1/76535d4dd819b58c4451e6068edd6bf181938ffc"
+      }
+    }
+  },
+
+  // log viewer
+  "logViewer.watch": [
+    {
+      "title": "TestLog",
+      "pattern": "/Users/chen.s/Projects/td-api/log/test.log"
+    }
+  ],
+  "java.semanticHighlighting.enabled": true,
+  "python.languageServer": "Pylance",
+  "mssql.connections": [
+    {
+      "server": "{{put-server-name-here}}",
+      "database": "{{put-database-name-here}}",
+      "user": "{{put-username-here}}",
+      "password": "{{put-password-here}}"
+    }
+  ],
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter-notebook"
+  },
+  "redhat.telemetry.enabled": true,
+  "security.workspace.trust.untrustedFiles": "open"
 }
