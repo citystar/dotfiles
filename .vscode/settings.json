@@ -79,18 +79,6 @@
         "host": "http://127.0.0.1:3000",
         "token": "TD1 1/84dc9ef11d018254845d514652aaea78995cb3f9"
       },
-      "development": {
-        "host": "https://api-development.treasuredata.com",
-        "token": "TD1 1/9590ee25eea51392552d49ecb35f64fe9c9edb8b"
-      },
-      "development-eu01": {
-        "host": "https://api-development.eu01.treasuredata.com",
-        "token": "TD1 1/b759738a7936d3420cc7a9ee77f3b65c2f294bf5"
-      },
-      "production": {
-        "host": "https://api.treasuredata.com",
-        "token": "TD1 1/76535d4dd819b58c4451e6068edd6bf181938ffc"
-      }
     }
   },
 

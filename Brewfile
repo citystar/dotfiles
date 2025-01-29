@@ -30,6 +30,8 @@ brew 'readline'
 brew 'ruby-build'
 brew 'tig'
 
+brew 'go-jira'
+
 # alternative to 'cat'
 brew 'bat'
 # better curl
@@ -43,6 +45,7 @@ cask 'karabiner-elements'
 cask 'appcleaner'
 cask 'docker'
 cask 'dash'
+# curl -o dash_formula.rb -s https://raw.githubusercontent.com/Homebrew/homebrew-cask/baf4f35e70c225fe1a8a60ec3b4e22604187238d/Casks/dash.rb;brew install --cask dash_formula.rb;rm -f dash_formula.rb
 cask 'electronic-wechat'
 cask 'google-chrome'
 # cask 'google-drive'
@@ -51,7 +54,7 @@ cask 'iterm2'
 cask 'java'
 # cask 'nosleep'
 # cask 'qq'
-cask 'sequel-pro'
+# cask 'sequel-pro'
 cask 'slack'
 cask 'postman'
 cask 'sogouinput'
@@ -61,6 +64,9 @@ cask 'virtualbox'
 cask 'vagrant'
 cask 'visual-studio-code'
 
+cask 'intellij-idea'
+cask 'microsoft-outlook'
+
 tap caskroom/fonts
 cask 'font-fira-code'
 
@@ -69,6 +75,11 @@ brew 'socat'
 brew 'geoip'
 brew 'geoipupdate'
 brew "mysql@5.7", restart_service: true, link: true, conflicts_with: ["mysql"]
+
+brew 'peco'
+brew 'awscli'
+brew 'pre-commit'
+brew 'envchain'
 
 # quick look plugin
 cask 'qlmarkdown'
@@ -85,7 +96,17 @@ cask 'suspicious-package'
 cask 'quicklookase'
 cask 'qlvideo'
 
+cask 'notion'
+
 tap 'facebook/fb'
 brew 'buck'
 
 mas 'Xcode', id: 497799835
+mas 'Jira Cloud', id: 1475897096
+mas 'Mindnode', id: 1218718027
+
+# rbenv
+# pyenv
+
+# nvm
+# curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash

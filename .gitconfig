@@ -6,7 +6,7 @@
 	autocrlf = input
 	pager = lv -c
 	quotepath = false
-	hooksPath = ~/Projects/dotfiles/.git-hooks
+	#hooksPath = ~/Projects/dotfiles/.git-hooks
 [color]
 	ui = auto
 	interactive = auto
@@ -93,3 +93,9 @@
 	required = true
 [commit]
 #	template = ~/.stCommitMsg
+[credential "https://github.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential
